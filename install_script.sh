@@ -17,7 +17,7 @@ sudo systemctl enable lightdm
 systemctl --user enable pulseaudio
 
 # Clones all configuration files from my GitHub
-git clone https://github.com/AdamBurakowski/Linux-Config
+git clone https://github.com/AdamBurakowski/Linux-Config ~/Linux-Config/
 
 # Moves Vim config to /etc
 sudo mv ~/Linux-Config/vimrc /etc/.vimrc
