@@ -29,6 +29,8 @@ vim /etc/locale.gen
 
 vim /etc/locale.conf
 
+locale-gen
+
 vim /etc/hostname
 
 ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
