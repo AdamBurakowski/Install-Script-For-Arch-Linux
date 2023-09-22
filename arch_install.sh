@@ -1,42 +1,40 @@
-#!/bin/bash
+#!bin/bash
 
-# Updates system
-sudo pacman -Syu
+cfdisk /dev/sda
 
-# Most essential program
-sudo pacman -S neofetch
-# He He. Because you know... I use Arch btw btw
+mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/sda2
 
-# Essential program install
-sudo pacman -S xorg-server xorg-xinit qtile lightdm lightdm-gtk-greeter alacritty git pulseaudio pulseaudio-alsa
+mount /dev/sda2 /mnt
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
 
-# Enables LightDM to start on boot
-sudo systemctl enable lightdm
+pacstrap /mnt base base-devel linux linux-firmware vim
 
-# Enables pulseaudio to start on boot (different session for every user each)
-systemctl --user enable pulseaudio
+genfstab -U /mnt >> /mnt/etc/fsttab
 
-# Clones all configuration files from my GitHub
-git clone https://github.com/AdamBurakowski/Linux-Config ~/Linux-Config/
+arch-chroot /mnt /bin/bash
 
-# Moves Vim config to /etc
-sudo mv ~/Linux-Config/vimrc /etc/.vimrc
+pacman -S networkmanager grub
 
-# Moves Qtile config files
-sudo mv ~/Linux-Config/config.py ~/.config/qtile/
-sudo mv ~/Linux-Config/autostart.sh ~/.config/qtile
+systemctl enable NetworkManager
 
-# Moves Lightdm-gtk-greeter config file
-sudo mv ~/Linux-Config/lightdm-gtk-greeter.conf /etc/lightdm
+grub-install /dev/sda
 
-sudo mv ~/Linux-Config/picom.conf ~/.config/picom
+grub-mkconfig -o /boot/grub/grub.cfg
 
-# Visual enhancement programs (themes, icons, walpapers, etc)
-sudo pacman -S arc-gtk-theme papirus-icon-theme lxappearance qt5ct nitrogen
+passwd
 
-# Installs Firefox and other work tools
-sudo pacman -S firefox discord libreoffice-still python thunar
+vim /etc/locale.gen
 
-sudo pacman -Scc
+vim /etc/locale.conf
 
-echo "Installation complete. Reboot your system to start using the new setup"
+vim /etc/hostname
+
+ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
+
+exit
+
+unmount -R /mnt
+
+reboot
