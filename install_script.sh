@@ -26,6 +26,11 @@ sudo mv ~/Linux-Config/vimrc /etc/.vimrc
 sudo mv ~/Linux-Config/config.py ~/.config/qtile/
 sudo mv ~/Linux-Config/autostart.sh ~/.config/qtile
 
+# Moves Lightdm-gtk-greeter config file
+sudo mv ~/Linux-Config/lightdm-gtk-greeter.conf /etc/lightdm
+
+sudo mv ~/Linux-Config/picom.conf ~/.config/picom
+
 # Visual enhancement programs (themes, icons, walpapers, etc)
 sudo pacman -S arc-gtk-theme papirus-icon-theme lxappearance qt5ct nitrogen
 
