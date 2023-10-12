@@ -23,8 +23,8 @@ git clone https://github.com/AdamBurakowski/Linux-Config ~/Linux-Config/
 sudo mv ~/Linux-Config/vimrc /etc/.vimrc
 
 # Moves Qtile config files
-sudo mv ~/Linux-Config/config.py ~/.config/qtile/
-sudo mv ~/Linux-Config/autostart.sh ~/.config/qtile
+sudo mv ~/Linux-Config/config.py ~/.config/qtile/config.py
+sudo mv ~/Linux-Config/autostart.sh ~/.config/qtile/autostart.sh
 
 # Moves Lightdm-gtk-greeter config file
 sudo mv ~/Linux-Config/lightdm-gtk-greeter.conf /etc/lightdm
