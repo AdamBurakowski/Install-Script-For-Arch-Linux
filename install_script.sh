@@ -29,7 +29,7 @@ sudo mv ~/Linux-Config/autostart.sh ~/.config/qtile/autostart.sh
 # Moves Lightdm-gtk-greeter config file
 sudo mv ~/Linux-Config/lightdm-gtk-greeter.conf /etc/lightdm
 
-sudo mv ~/Linux-Config/picom.conf ~/.config/picom
+sudo mv ~/Linux-Config/picom.conf ~/.config/picom/picom.conf
 
 # Visual enhancement programs (themes, icons, walpapers, etc)
 sudo pacman -S arc-gtk-theme papirus-icon-theme lxappearance qt5ct nitrogen
