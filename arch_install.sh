@@ -11,7 +11,7 @@ mount /dev/sda1 /mnt/boot
 
 pacstrap /mnt base base-devel linux linux-firmware vim
 
-genfstab -U /mnt >> /mnt/etc/fsttab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt /bin/bash
 
